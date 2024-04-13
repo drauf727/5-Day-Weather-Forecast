@@ -1,6 +1,6 @@
 const apiKey = '5ccfb87c2313dc93a4278d2086ead169';
-const searchBox = document.querySelector(".search input");
-const searchButton = document.querySelector(".search button");
+const searchBox = document.querySelector("#search input");
+const searchButton = document.querySelector("#search button");
 const weatherIcon = document.querySelector(".weather-icon");
 
 async function getWeather(city){
@@ -20,3 +20,8 @@ async function getWeather5day(city){
     console.log(data5);
 }
 
+
+searchButton.addEventListener('click', () => {
+    getWeather(searchBox.value);
+    getWeather5day(searchBox.value);
+} )
