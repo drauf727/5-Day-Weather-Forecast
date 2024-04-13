@@ -86,6 +86,9 @@ async function getWeather5day(city){
     document.getElementById("day5humidity").innerHTML = `Humidity: ${data5.list[32].main.humidity}%`;
 }
 
+
+// Adding photos to 5 day forcast using for loop instead of retyping code
+
 async function getWeather5dayPhotos(city){
     const apiData5 = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`);
     var data5Photos = await apiData5.json();
