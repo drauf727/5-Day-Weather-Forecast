@@ -2,7 +2,7 @@
 const apiKey = '5ccfb87c2313dc93a4278d2086ead169';
 const searchBox = document.querySelector("#search input");
 const searchButton = document.querySelector("#search button");
-const weatherIcon = document.querySelector(".weather-icon");
+const weatherIcon = document.querySelector("#todayimage");
 
 // Defining Dates
 const day0 = new Date();
@@ -28,6 +28,28 @@ async function getWeather(city){
     document.getElementById("todaytemp").innerHTML = `Temperature: ${(Math.round((data.main.temp-273.15)*1.8+32))} °F`;
     document.getElementById("todaywind").innerHTML = `Wind Speed: ${data.wind.speed} MPH`;
     document.getElementById("todayhumidity").innerHTML = `Humidity: ${data.main.humidity}%`;
+
+    // Adding image to side of todays weather
+    if (data.weather[0].main == 'Clouds'){
+        weatherIcon.src = "./assets/images/cloud.png";
+    } else if(data.weather[0].main == 'Thunderstorm'){
+        weatherIcon.src = "./assets/images/rain.png";
+    } 
+    else if(data.weather[0].main == 'Drizzle'){
+        weatherIcon.src = "./assets/images/rain.png";
+    } 
+    else if(data.weather[0].main == 'Rain'){
+        weatherIcon.src = "./assets/images/rain.png";
+    } 
+    else if(data.weather[0].main == 'Snow'){
+        weatherIcon.src = "./assets/images/snow.png";
+    } 
+    else if(data.weather[0].main == 'Clear'){
+        weatherIcon.src = "./assets/images/sun.png";
+    } 
+    else {
+        weatherIcon.src = "./assets/images/fog.png";
+    }
 }
 
 // Function for 5 day forecast (pulling from seperate API call)
@@ -64,8 +86,41 @@ async function getWeather5day(city){
     document.getElementById("day5humidity").innerHTML = `Humidity: ${data5.list[32].main.humidity}%`;
 }
 
+async function getWeather5dayPhotos(city){
+    const apiData5 = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`);
+    var data5Photos = await apiData5.json();
+    console.log(data5Photos);
+    
+   for (let n=0; n<33; n+=8) {
+    if (data5Photos.list[n].weather[0].main == 'Clouds'){
+        document.getElementById("imageday" + n).src = "./assets/images/cloud.png";
+    } else if(data5Photos.list[n].weather[0].main == 'Thunderstorm'){
+        document.getElementById("imageday" + n).src = "./assets/images/rain.png";
+    } 
+    else if(data5Photos.list[n].weather[0].main == 'Drizzle'){
+        document.getElementById("imageday" + n).src = "./assets/images/rain.png";
+    } 
+    else if(data5Photos.list[n].weather[0].main == 'Rain'){
+        document.getElementById("imageday" + n).src = "./assets/images/rain.png";
+    } 
+    else if(data5Photos.list[n].weather[0].main == 'Snow'){
+        document.getElementById("imageday" + n).src = "./assets/images/snow.png";
+    } 
+    else if(data5Photos.list[n].weather[0].main == 'Clear'){
+        document.getElementById("imageday" + n).src = "./assets/images/sun.png";
+    } 
+    else {
+        document.getElementById("imageday" + n).src = "./assets/images/fog.png";
+    }
+}
+}
+
+
+
+
 // Event listener to gather city from user
 searchButton.addEventListener('click', () => {
     getWeather(searchBox.value);
     getWeather5day(searchBox.value);
+    getWeather5dayPhotos(searchBox.value)
 } )
