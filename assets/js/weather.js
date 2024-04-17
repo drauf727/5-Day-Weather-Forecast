@@ -3,6 +3,7 @@ const apiKey = '5ccfb87c2313dc93a4278d2086ead169';
 const searchBox = document.querySelector("#search input");
 const searchButton = document.querySelector("#search button");
 const weatherIcon = document.querySelector("#todayimage");
+const weatherDetailPhoto = document.querySelector("#todaydetailedphoto");
 
 // Defining Dates
 const day0 = new Date();
@@ -49,6 +50,27 @@ async function getWeather(city){
     } 
     else {
         weatherIcon.src = "./assets/images/fog.png";
+    }
+
+    if (data.weather[0].main == 'Clouds'){
+        weatherDetailPhoto.src = "./assets/images/clouddetail.jpg";
+    } else if(data.weather[0].main == 'Thunderstorm'){
+        weatherIcon.src = "./assets/images/thunder2.jpg";
+    } 
+    else if(data.weather[0].main == 'Drizzle'){
+        weatherDetailPhoto.src = "./assets/images/drizzledetail.jpg";
+    } 
+    else if(data.weather[0].main == 'Rain'){
+        weatherDetailPhoto.src = "./assets/images/rainydetail.jpg";
+    } 
+    else if(data.weather[0].main == 'Snow'){
+        weatherDetailPhoto.src = "./assets/images/snowdetail.jpg";
+    } 
+    else if(data.weather[0].main == 'Clear'){
+        weatherDetailPhoto.src = "./assets/images/clear2detail.jpg";
+    } 
+    else {
+        weatherDetailPhoto.src = "./assets/images/unknowndetail.jpg";
     }
 }
 
