@@ -7,3 +7,17 @@
     height: 100%;
     width: 100%
 }
+
+#search-history button{
+    margin-bottom: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: blue;
+    color: whitesmoke;
+    width:80%;
+    font-size: 1.3rem;
+}
+
+#search input{
+    width: 100%
+}

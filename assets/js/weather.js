@@ -25,10 +25,10 @@ async function getWeather(city){
     var data = await apiData.json();
     console.log(data);
     document.getElementById("cityname").innerHTML = data.name;
-    document.getElementById("todaydate").innerHTML = `${(day0.getMonth()+1)}/${day0.getDate()}/${day0.getFullYear()}`;
-    document.getElementById("todaytemp").innerHTML = `Temperature: ${(Math.round((data.main.temp-273.15)*1.8+32))} °F`;
+    document.getElementById("todaydate").innerHTML = `${(day0.getMonth()+1)}/${day0.getDate()}`;
+    document.getElementById("todaytemp").innerHTML = `Temp: ${(Math.round((data.main.temp-273.15)*1.8+32))} °F`;
     document.getElementById("todaywind").innerHTML = `Wind Speed: ${data.wind.speed} MPH`;
-    document.getElementById("todayhumidity").innerHTML = `Humidity: ${data.main.humidity}%`;
+    document.getElementById("todayhumidity").innerHTML = `Hum: ${data.main.humidity}%`;
 
     // Adding image to side of todays weather
     if (data.weather[0].main == 'Clouds'){
