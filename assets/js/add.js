@@ -1,7 +1,6 @@
 const searchBox2 = document.querySelector("#search input");
 const searchButton2 = document.querySelector("#search button");
 const cityList = document.getElementById("search-history");
-const newCityObject = [''];
 const citiesLocal = localStorage.getItem("cityList") ? JSON.parse(localStorage.getItem("cityList")) : [];
 
 function addCity() {
@@ -10,26 +9,26 @@ function addCity() {
     if (!value) return;
 
     const newCity = document.createElement("button");
-    
+
     newCity.innerText = value;
 
-        cityList.appendChild(newCity);
+    cityList.appendChild(newCity);
 
-        newCityObject.push(value);
-        localStorage.setItem('cityList', JSON.stringify(newCityObject));
+    citiesLocal.push(value);
+    localStorage.setItem('cityList', JSON.stringify(citiesLocal));
 
-        searchBox2.value = "";
+    searchBox2.value = "";
 };
 
 searchButton2.addEventListener('click', () => {
- addCity();
-} )
+    addCity();
+})
 
-function addExistingCities (getCities) {
-    for (i=0; i<getCities.length; i++){
-          const addExistingCity = document.createElement("button");
-          addExistingCity.innerText = getCities[i];
-          cityList.appendChild(addExistingCity)   
+function addExistingCities(getCities) {
+    for (i = 0; i < getCities.length; i++) {
+        const addExistingCity = document.createElement("button");
+        addExistingCity.innerText = getCities[i];
+        cityList.appendChild(addExistingCity)
     }
 }
 
