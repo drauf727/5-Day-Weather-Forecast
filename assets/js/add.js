@@ -1,8 +1,13 @@
+// creating variables from HTML
 const searchBox2 = document.querySelector("#search input");
 const searchButton2 = document.querySelector("#search button");
 const cityList = document.getElementById("search-history");
+
+// setting local storage
 const citiesLocal = localStorage.getItem("cityList") ? JSON.parse(localStorage.getItem("cityList")) : [];
 
+
+// function to add a city button once searched
 function addCity() {
     const value = searchBox2.value;
 
@@ -20,10 +25,12 @@ function addCity() {
     searchBox2.value = "";
 };
 
+// event listener to call function
 searchButton2.addEventListener('click', () => {
     addCity();
 })
 
+// adding buttons for cities already in local storage
 function addExistingCities(getCities) {
     for (i = 0; i < getCities.length; i++) {
         const addExistingCity = document.createElement("button");
@@ -32,4 +39,5 @@ function addExistingCities(getCities) {
     }
 }
 
+// calling function
 addExistingCities(citiesLocal);

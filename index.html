@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 </head>
 <body>
+    <!-- Simple Navbar -->
     <nav class="navbar navbar-light bg-primary pb-3">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
@@ -21,6 +22,7 @@
           </a>
         </div>
       </nav>
+      <!-- Side panel with search bar and searched cities -->
     <div class="container-fluid">
         <div class="row">
             <div class="col-3 bg-secondary">
@@ -31,10 +33,12 @@
                     <button type="submit">Search</button>
                 </div>
             
+                <!-- Div for city buttons to show -->
                 <div id="search-history" class="pt-4">
 
                 </div>
             </div>
+            <!-- Todays weather card -->
             <div class="col-9 p-0">
                 <div class="row">
                    <div class="col-3 mt-5">
@@ -48,7 +52,7 @@
                         <img src="" id="todaydetailedphoto">
                     </div>
                 </div>
-
+                <!-- Forecast for next 5 days -->
                 <div class="p-2 bg-info">
                     <h3 class="text-center">Forecast For Next 5 Days:</h3>
                     <div class="d-flex p-2 bg-info" id="card-container">
