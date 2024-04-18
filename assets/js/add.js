@@ -8,9 +8,14 @@ function addCity() {
     if (!value) return;
 
     const newCity = document.createElement("button");
+    const newCityObject = [''];
+    
     newCity.innerText = value;
 
         cityList.appendChild(newCity);
+
+        newCityObject.push(value);
+        localStorage.setItem('cityList', newCityObject);
 
         searchBox2.value = "";
 };
