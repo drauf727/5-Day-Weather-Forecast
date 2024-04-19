@@ -17,13 +17,7 @@ function addCity() {
 
     newCity.innerText = value;
     newCity.classList = "cityButton";
-    newCity.setAttribute("onclick",buttonSearch);
-    function buttonSearch(){
-        console.log('working?');
-        y = value;
-        getWeather(y);
-    }
-
+    newCity.id = newCity.innerText;
     cityList.appendChild(newCity);
 
     citiesLocal.push(value);
@@ -43,9 +37,23 @@ function addExistingCities(getCities) {
         const addExistingCity = document.createElement("button");
         addExistingCity.innerText = getCities[i];
         addExistingCity.classList = "cityButton";
+        addExistingCity.id = addExistingCity.innerText;
         cityList.appendChild(addExistingCity)
     }
 }
 
 // calling function
 addExistingCities(citiesLocal);
+
+// Function to make previous search buttons perform new search
+
+var citySearch1 = document.querySelectorAll(".cityButton").length;
+var testing123 = document.querySelectorAll("cityButton")
+
+for (var i = 0; i < citySearch1; i++) {
+    document.querySelectorAll(".cityButton")[i].addEventListener('click', function () {
+        getWeather(this.id);
+        getWeather5day(this.id);
+        getWeather5dayPhotos(this.id);
+    })
+};

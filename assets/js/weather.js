@@ -156,11 +156,3 @@ searchButton.addEventListener('click', () => {
     getWeather5dayPhotos(searchBox.value)
 })
 
-// let citySearch = document.querySelector(".cityButton");
-// citySearch.value = ".cityButton".innerText
-
-// citySearch.addEventListener('click', () => {
-//     getWeather('tampa');
-//     getWeather5day('tampa');
-//     getWeather5dayPhotos('tampa');
-// })

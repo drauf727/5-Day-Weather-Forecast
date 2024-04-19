@@ -1,28 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>5 Day Weather Forecast</title>
-            <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-            crossorigin="anonymous">
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 </head>
+
 <body>
     <!-- Simple Navbar -->
     <nav class="navbar navbar-light bg-primary pb-3">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">
-            <img src="./assets/images/sun.png" alt="" width="30" height="30" class="d-inline-block align-text-top">
-            Your 5 Day Travel Forcast
-          </a>
+            <a class="navbar-brand" href="#">
+                <img src="./assets/images/sun.png" alt="" width="30" height="30" class="d-inline-block align-text-top">
+                Your 5 Day Travel Forcast
+            </a>
         </div>
-      </nav>
-      <!-- Side panel with search bar and searched cities -->
+    </nav>
+    <!-- Side panel with search bar and searched cities -->
     <div class="container-fluid">
         <div class="row">
             <div class="col-3 bg-secondary">
@@ -32,7 +31,7 @@
                     <input type="text" placeholder="Miami" id="cityinput">
                     <button type="submit">Search</button>
                 </div>
-            
+
                 <!-- Div for city buttons to show -->
                 <div id="search-history" class="pt-4">
 
@@ -41,8 +40,9 @@
             <!-- Todays weather card -->
             <div class="col-9 p-0">
                 <div class="row">
-                   <div class="col-3 mt-5">
-                        <h1 id="cityname" class="p-2">City</h1><img src="./assets/images/sun.png" id="todayimage" height="50px" width="50px">
+                    <div class="col-3 mt-5">
+                        <h1 id="cityname" class="p-2">City</h1><img src="./assets/images/sun.png" id="todayimage"
+                            height="50px" width="50px">
                         <h5 id="todaydate" class="p-2">Date</h5>
                         <h5 id="todaytemp" class="p-2">Temp</h5>
                         <h5 id="todaywind" class="p-2">Wind</h5>
@@ -58,7 +58,7 @@
                     <div class="d-flex p-2 bg-info" id="card-container">
                         <div class="card m-3" style="width:12rem;">
                             <h4 id="day1date">Date</h4>
-                            <img src="./assets/images/sun.png" id= "imageday0" height="50px" width="50px">
+                            <img src="./assets/images/sun.png" id="imageday0" height="50px" width="50px">
                             <p id="day1temp">Temperature:</p>
                             <p id="day1wind">Wind Speed:</p>
                             <p id="day1humidity">Humidity:</p>
@@ -66,7 +66,7 @@
 
                         <div class="card m-3" style="width:12rem;">
                             <h4 id="day2date">Date</h4>
-                            <img id= "imageday8" src="./assets/images/sun.png" height="50px" width="50px">
+                            <img id="imageday8" src="./assets/images/sun.png" height="50px" width="50px">
                             <p id="day2temp">Temperature:</p>
                             <p id="day2wind">Wind Speed:</p>
                             <p id="day2humidity">Humidity:</p>
@@ -74,7 +74,7 @@
 
                         <div class="card m-3" style="width:12rem;">
                             <h4 id="day3date">Date</h4>
-                            <img id= "imageday16" src="./assets/images/sun.png" height="50px" width="50px">
+                            <img id="imageday16" src="./assets/images/sun.png" height="50px" width="50px">
                             <p id="day3temp">Temperature:</p>
                             <p id="day3wind">Wind Speed:</p>
                             <p id="day3humidity">Humidity:</p>
@@ -82,7 +82,7 @@
 
                         <div class="card m-3" style="width:12rem;">
                             <h4 id="day4date">Date</h4>
-                            <img id= "imageday24" src="./assets/images/sun.png" height="50px" width="50px">
+                            <img id="imageday24" src="./assets/images/sun.png" height="50px" width="50px">
                             <p id="day4temp">Temperature:</p>
                             <p id="day4wind">Wind Speed:</p>
                             <p id="day4humidity">Humidity:</p>
@@ -90,18 +90,21 @@
 
                         <div class="card m-3" style="width:12rem;">
                             <h4 id="day5date">Date</h4>
-                            <img id= "imageday32" src="./assets/images/sun.png" height="50px" width="50px">
+                            <img id="imageday32" src="./assets/images/sun.png" height="50px" width="50px">
                             <p id="day5temp">Temperature:</p>
                             <p id="day5wind">Wind Speed:</p>
                             <p id="day5humidity">Humidity:</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="./assets/js/weather.js"></script>
-    <script src="./assets/js/add.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+        <script src="./assets/js/weather.js"></script>
+        <script src="./assets/js/add.js"></script>
 </body>
+
 </html>
