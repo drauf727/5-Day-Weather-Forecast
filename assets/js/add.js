@@ -16,6 +16,13 @@ function addCity() {
     const newCity = document.createElement("button");
 
     newCity.innerText = value;
+    newCity.classList = "cityButton";
+    newCity.setAttribute("onclick",buttonSearch);
+    function buttonSearch(){
+        console.log('working?');
+        y = value;
+        getWeather(y);
+    }
 
     cityList.appendChild(newCity);
 
@@ -35,6 +42,7 @@ function addExistingCities(getCities) {
     for (i = 0; i < getCities.length; i++) {
         const addExistingCity = document.createElement("button");
         addExistingCity.innerText = getCities[i];
+        addExistingCity.classList = "cityButton";
         cityList.appendChild(addExistingCity)
     }
 }

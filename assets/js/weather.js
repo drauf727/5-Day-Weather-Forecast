@@ -23,9 +23,7 @@ day5.setDate(day0.getDate() + 5);
 async function getWeather(city) {
     const apiData = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`);
     var data = await apiData.json();
-    console.log(data);
-    console.log(data.cod)
-    if (data.cod !== '200') {
+    if (data.cod !== 200) {
         alert("city not found");
         console.log('ajaja');
         return
@@ -86,11 +84,7 @@ async function getWeather(city) {
 async function getWeather5day(city) {
     const apiData5 = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`);
     var data5 = await apiData5.json();
-    console.log(data5);
 
-    if (data5.cod !== '200') {
-        return
-    }
 
     document.getElementById("day1date").innerHTML = `${(day1.getMonth() + 1)}/${day1.getDate()}/${day1.getFullYear()}`;
     document.getElementById("day1temp").innerHTML = `Temperature: ${(Math.round((data5.list[0].main.temp - 273.15) * 1.8 + 32))}°F`;
@@ -126,11 +120,7 @@ async function getWeather5day(city) {
 async function getWeather5dayPhotos(city) {
     const apiData5 = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`);
     var data5Photos = await apiData5.json();
-    console.log(data5Photos);
 
-    if (data5Photos.cod !== '200') {
-        return
-    }
 
     for (let n = 0; n < 33; n += 8) {
         if (data5Photos.list[n].weather[0].main == 'Clouds') {
@@ -165,3 +155,12 @@ searchButton.addEventListener('click', () => {
     getWeather5day(searchBox.value);
     getWeather5dayPhotos(searchBox.value)
 })
+
+// let citySearch = document.querySelector(".cityButton");
+// citySearch.value = ".cityButton".innerText
+
+// citySearch.addEventListener('click', () => {
+//     getWeather('tampa');
+//     getWeather5day('tampa');
+//     getWeather5dayPhotos('tampa');
+// })
